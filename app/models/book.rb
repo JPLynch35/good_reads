@@ -18,4 +18,16 @@ class Book < ApplicationRecord
   def max_rating_content
     reviews.where(rating: reviews.maximum(:rating)).first.content
   end
+
+  def min_rating
+    reviews.minimum(:rating)
+  end
+
+  def min_rating_user
+    reviews.where(rating: reviews.minimum(:rating)).first.user.name
+  end
+
+  def min_rating_content
+    reviews.where(rating: reviews.minimum(:rating)).first.content
+  end
 end

@@ -44,5 +44,16 @@ describe 'a user' do
       expect(page).to have_content("Maximum Rating User: #{@book1.max_rating_user}")
       expect(page).to have_content("Maximum Rating Review: #{@book1.max_rating_content}")
     end
+    it'can see the minimum rating for the book' do
+      visit book_path(@book1)
+
+      expect(page).to have_content("Minimum Rating: #{@review4.rating}")
+    end
+    it'can see the user and review from the minimum rating for the book' do
+      visit book_path(@book1)
+
+      expect(page).to have_content("Minimum Rating User: #{@book1.min_rating_user}")
+      expect(page).to have_content("Minimum Rating Review: #{@book1.min_rating_content}")
+    end
   end
 end
