@@ -14,7 +14,13 @@ describe Review, type: :model do
   it 'should be able to calculate the average rewview ratings of a book' do
     expect(@book1.average_review_rating).to eq(3)
   end
-  it 'should be able to find the maximum for each book' do
+  it 'should be able to find the maximum rating for each book' do
     expect(@book1.max_rating).to eq(4)
+  end
+  it 'should be able to find user of the max rating of a book' do
+    expect(@book1.max_rating_user).to eq(@review1.user.name)
+  end
+  it 'should be able to find content of the max rating of a book' do
+    expect(@book1.max_rating_content).to eq(@review1.content)
   end
 end

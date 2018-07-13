@@ -10,4 +10,12 @@ class Book < ApplicationRecord
   def max_rating
     reviews.maximum(:rating)
   end
+
+  def max_rating_user
+    reviews.where(rating: reviews.maximum(:rating)).first.user.name
+  end
+
+  def max_rating_content
+    reviews.where(rating: reviews.maximum(:rating)).first.content
+  end
 end
