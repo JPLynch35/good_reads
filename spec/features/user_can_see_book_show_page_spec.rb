@@ -22,5 +22,12 @@ describe 'a user' do
       expect(page).to have_content(@review2.content)
       expect(page).to have_content(@review2.rating)
     end
+    it'can see the average rating for the book' do
+      visit book_path(@book1)
+
+      average = (@review1.rating + @review2.rating) / 2
+
+      expect(page).to have_content("Average Rating: #{average}")
+    end
   end
 end
