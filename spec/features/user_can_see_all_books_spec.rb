@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'a user' do
-  describe 'visiting index page' do
+  describe 'visiting book index page' do
     before :each do
       @book1 = Book.create(title: 'The Ham')
       @book2 = Book.create(title: 'The Turkey')
